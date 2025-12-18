@@ -39,6 +39,8 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.ktor.serialization.kotlinx.json)
+
+            implementation(libs.sqldelight.runtime)
             // put your Multiplatform dependencies here
 //            implementation(projects.domain)
 //            implementation(libs.kotlinx.coroutines.core)
@@ -75,11 +77,16 @@ kotlin {
 //            implementation("")// https://mvnrepository.com/artifact/net.java.dev.jna/jna
             implementation(libs.jna)
 //            implementation(libs.sql.jvm.driver)
+            implementation(libs.sqlite.driver)
             implementation(project(":shared:domain"))
         }
         desktopTest.dependencies {
             implementation(kotlin("test"))
             implementation(libs.kotlinx.coroutines.test)
+        }
+        appleMain.dependencies {
+            implementation(libs.native.driver)
+
         }
 
 
@@ -114,10 +121,10 @@ kotlin {
     }
 }
 
-//sqldelight {
-//    databases {
-//        create(name = "SampleDataBase") {
-//            packageName.set("kmp.learn.copynews")
-//        }
-//    }
-//}
+sqldelight {
+    databases {
+        create(name = "CopyNews") {
+            packageName.set("kmp.learn.copynews")
+        }
+    }
+}

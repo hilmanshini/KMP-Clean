@@ -1,0 +1,40 @@
+import kotlin.Boolean;
+
+CREATE  TABLE User(
+    token TEXT NOT NULL
+);
+
+
+
+
+insetToken:
+INSERT INTO  User(token) VALUES(?);
+
+getToken:
+SELECT  User.token
+FROM User LIMIT 1;
+
+countToken:
+SELECT COUNT(User.token) FROM User LIMIT 1;
+
+-- setToken:
+-- INSERT INTO  User(token) VALUES(?);
+
+-- getToken:
+-- SELECT token from User limit 1;
+
+--
+--
+--
+--
+-- insertLaunch:
+-- INSERT INTO CopyNews(flightNumber, missionName, details, launchSuccess, launchDateUTC, patchUrlSmall, patchUrlLarge, articleUrl)
+-- VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+--
+--
+-- removeAllLaunches:
+-- DELETE FROM CopyNews;
+--
+-- selectAllLaunchesInfo:
+-- SELECT CopyNews.*
+-- FROM CopyNews;
